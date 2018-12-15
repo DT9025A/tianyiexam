@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:gravity="top|center"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical"
+		android:gravity="center">
+
+		<EditText
+			android:layout_height="44dp"
+			android:layout_width="match_parent"
+			android:ems="10"
+			android:id="@+id/mainEditTextNumber"
+			android:hint="考号"
+			android:inputType="textUri"/>
+
+		<Spinner
+			android:layout_height="45dp"
+			android:layout_width="match_parent"
+			android:id="@+id/mainSpinnerExam"
+			android:entries="@array/arrSubjects"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="查询"
+			android:id="@+id/mainButtonSubmit"/>
+
+		<View
+			android:layout_height="20dp"
+			android:layout_width="match_parent"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:text="考生信息"
+			android:id="@+id/mainTextViewUserInfo"/>
+
+	</LinearLayout>
+
+	<ScrollView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent">
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="vertical"
+			android:gravity="center">
+
+			<TableLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:stretchColumns="0,1,2,3,4"
+				android:paddingLeft="5dp">
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="科目 "/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text=" 成绩 "/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text=" 班名次 "/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text=" 校名次 "/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text=" 联考名次 "/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="总分"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewTOTSCORE"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewTOTCLASSS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewTOTSCHOOLS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewTOTEXAMS"/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="语文"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHNSCORE"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHNCLASSS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHNSCHOOLS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHNEXAMS"/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="数学"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewMATSCORE"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewMATCLASSS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewMATSCHOOLS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewMATEXAMS"/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="英语"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewENGSCORE"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewENGCLASSS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewENGSCHOOLS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewENGEXAMS"/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="物理"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewPHYSCORE"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewPHYCLASSS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewPHYSCHOOLS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewPHYEXAMS"/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="化学"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHESCORE"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHECLASSS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHESCHOOLS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHEEXAMS"/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="生物"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewBIOSCORE"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewBIOCLASSS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewBIOSCHOOLS"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewBIOEXAMS"/>
+
+				</TableRow>
+
+			</TableLayout>
+
+			<View
+				android:layout_height="20dp"
+				android:layout_width="match_parent"/>
+
+			<TableLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:stretchColumns="0,1,2,3,4,5,6,7"
+				android:shrinkColumns="0,1,2,3,4,5,6,7"
+				android:paddingLeft="5dp"
+				android:paddingRight="3dp">
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="科目 "/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="成绩"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="班平"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="校平"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="联考平"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="班高"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="校高"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="联考高"/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="总分"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewTOTSCORE0"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewTOTCLASSA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewTOTSCHOOLSA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewTOTEXAMSA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewTOTCLASSM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewTOTSCHOOLSM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewTOTEXAMSM"/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="语文"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHNSCORE0"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHNCLASSA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHNSCHOOLA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHNEXAMA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHNCLASSM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHNSCHOOLM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHNEXAMM"/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="数学"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewMATSCORE0"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewMATCLASSA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewMATSCHOOLA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewMATEXAMA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewMATCLASSM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewMATSCHOOLM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewMATEXAMM"/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="英语"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewENGSCORE0"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewENGCLASSA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewENGSCHOOLA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewENGEXAMA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewENGCLASSM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewENGSCHOOLM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewENGEXAMM"/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="物理"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewPHYSCORE0"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewPHYCLASSA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewPHYSCHOOLA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewPHYEXAMA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewPHYCLASSM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewPHYSCHOOLM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewPHYEXAMM"/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="化学"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHESCORE0"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHECLASSA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHESCHOOLA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHEEXAMA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHECLASSM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHESCHOOLM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewCHEEXAMM"/>
+
+				</TableRow>
+
+				<TableRow>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="生物"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewBIOSCORE0"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewBIOCLASSA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewBIOSCHOOLA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewBIOEXAMA"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewBIOCLASSM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewBIOSCHOOLM"/>
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/mainTextViewBIOEXAMM"/>
+
+				</TableRow>
+
+			</TableLayout>
+
+			<View
+				android:layout_height="10dp"
+				android:layout_width="match_parent"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_width="wrap_content"
+				android:text="Copyright © 2018 Tydlk , © 2018 FieldCongratulations"/>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>
+

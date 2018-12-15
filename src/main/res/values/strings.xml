@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">天一查分</string>
+	
+    <string name="regexOptions1st"><![CDATA[clkid[\w\W]+?(\s*<option value="\d+" >[\w\W]+?</option>*)+]]></string>
+	<string name="regexOptionsNum">"\d+</string>
+	<string name="regexOptionsName"><![CDATA[ >[\w\W]+?</]]></string>
+	
+	<string name="regexInfo1st"><![CDATA[info">[\w\W]+?</div]]></string>
+	
+	
+	
+</resources>

@@ -1,11 +1,9 @@
 package org.FieldCongratulations.tydlk;
 import java.io.*;
-import java.nio.*;
-import java.util.regex.*;
-import android.util.*;
+import java.net.*;
 import java.util.*;
 import java.util.concurrent.*;
-import java.net.*;
+import java.util.regex.*;
 
 class request implements Callable<String>
 {
@@ -47,14 +45,12 @@ class StudentNotExistException extends Exception
 	public void printStackTrace() {
 		super.printStackTrace();
 	}
-
-
 }
 
 public class indexInfo
 {
 	private String resultPage = "";
-	//public String expertUrl = "";
+	public boolean isScience = true;
 	public String[] serial;
 	public String[] names;
 
@@ -64,37 +60,18 @@ public class indexInfo
 		new Thread(ft).start();
 		resultPage = ft.get();
 	}
-	/*
-	 public indexInfo() {
-	 StringBuilder sb = new StringBuilder();
-	 FileReader fr;
-	 BufferedReader br;
-	 String c;
-	 try {
-	 fr = new FileReader(new File("/storage/6432-3632/0.html"));
-	 br = new BufferedReader(fr);
-	 while ((c = br.readLine()) != null)
-	 sb.append(c);
-	 } catch (Exception e) {
-	 e.printStackTrace();
-	 }
-	 resultPage = sb.toString();
-	 }
-	 */
+	
 	public void requestResult(String studentNumber, String exam) throws MalformedURLException,InterruptedException,ExecutionException,StudentNotExistException {
-		FutureTask<String> ft = new FutureTask<String>(new request(
-														   /*expertUrl.equals("") ? 
-														   expertUrl
-														   : */String.format("http://score.tydlk.cn/search/msingle?clkid=%s&xuehao=%s", exam, studentNumber)));
+		FutureTask<String> ft = new FutureTask<String>(new request(String.format("http://score.tydlk.cn/search/msingle?clkid=%s&xuehao=%s", exam, studentNumber)));
 		new Thread(ft).start();
 		resultPage = ft.get();
-		//expertUrl = "";
+		if(resultPage.contains("政治"))
+			isScience = false;
+		else
+			isScience = true;
 		if (resultPage.contains("学号不存在"))
 			throw new StudentNotExistException("StudentNotExistException: Invalid student id. May be not participated in the exam ?");
-		//return indexExamResult();
 	}
-
-
 
 	public String[] indexExamResult() {
 		Matcher matcher = Pattern.compile("clkid[\\w\\W]+?(\\s*<option value=\"\\d+\" >[\\w\\W]+?</option>*)+").matcher(resultPage);
@@ -576,8 +553,8 @@ class subjects
 		chinese = new indexResult();
 		math = new indexResult();
 		english = new indexResult();
-		physics = new indexResult();
-		biology = new indexResult();
-		chemistry = new indexResult();
+		physics = new indexResult(); //物理/政治
+		biology = new indexResult(); //生物/地理
+		chemistry = new indexResult(); //化学/历史
 	}
 }

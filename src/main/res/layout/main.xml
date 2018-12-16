@@ -29,7 +29,7 @@
 		<Button
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
-			android:text="查询"
+			android:text="拉取考试信息"
 			android:id="@+id/mainButtonSubmit"/>
 
 		<View
@@ -211,7 +211,8 @@
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="物理"/>
+						android:text="物理"
+						android:id="@+id/mainTextViewPHY"/>
 
 					<TextView
 						android:layout_width="wrap_content"
@@ -240,7 +241,8 @@
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="化学"/>
+						android:text="化学"
+						android:id="@+id/mainTextViewCHE"/>
 
 					<TextView
 						android:layout_width="wrap_content"
@@ -269,7 +271,8 @@
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="生物"/>
+						android:text="生物"
+						android:id="@+id/mainTextViewBIO"/>
 
 					<TextView
 						android:layout_width="wrap_content"
@@ -532,7 +535,8 @@
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="物理"/>
+						android:text="物理"
+						android:id="@+id/mainTextViewPHY0"/>
 
 					<TextView
 						android:layout_width="wrap_content"
@@ -576,7 +580,8 @@
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="化学"/>
+						android:text="化学"
+						android:id="@+id/mainTextViewCHE0"/>
 
 					<TextView
 						android:layout_width="wrap_content"
@@ -620,7 +625,8 @@
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="生物"/>
+						android:text="生物"
+						android:id="@+id/mainTextViewBIO0"/>
 
 					<TextView
 						android:layout_width="wrap_content"

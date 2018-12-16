@@ -8,8 +8,8 @@ android {
         applicationId "org.FieldCongratulations.tydlk"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 37
-        versionName "2.0.0.5_release"
+        versionCode 38
+        versionName "2.0.1.0_release"
     }
     buildTypes {
         release {

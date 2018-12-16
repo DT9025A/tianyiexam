@@ -15,10 +15,10 @@ public class MainActivity extends Activity
 	protected boolean isInit = false;
 	protected ConnectionChecker connectionChecker = null;
 
-	private void showDialog() {
+	private void showDialog(String text) {
 		d = new Dialog(context);
 		d.setContentView(R.layout.dialog);
-		d.setTitle("拉取信息");
+		d.setTitle(text);
 		d.show();
 	}
 	
@@ -35,7 +35,7 @@ public class MainActivity extends Activity
 						Toast.makeText(context, "网络未连接", Toast.LENGTH_SHORT).show();
 						return false;
 					}
-					showDialog();
+					showDialog("拉取考试信息");
 					new Thread(new Runnable(){
 							@Override
 							public void run() {
@@ -45,9 +45,9 @@ public class MainActivity extends Activity
 									runOnUiThread(new Runnable(){
 											@Override
 											public void run() {
+												((Button)findViewById(R.id.mainButtonSubmit)).setText(R.string.requestStudent);
 												((Spinner)findViewById(R.id.mainSpinnerExam)).setAdapter(new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, result));
 												Toast.makeText(context, "拉取完成,长按可重新拉取考试信息", Toast.LENGTH_SHORT).show();
-												((Button)findViewById(R.id.mainButtonSubmit)).setText("查询");
 											}
 										});
 									isInit = true;
@@ -73,8 +73,8 @@ public class MainActivity extends Activity
 						Toast.makeText(context, "网络未连接", Toast.LENGTH_SHORT).show();
 						return;
 					}
-					showDialog();
 					if (!isInit) {
+						showDialog("拉取考试信息");
 						new Thread(new Runnable(){
 								@Override
 								public void run() {
@@ -84,6 +84,7 @@ public class MainActivity extends Activity
 										runOnUiThread(new Runnable(){
 												@Override
 												public void run() {
+													((Button)findViewById(R.id.mainButtonSubmit)).setText(R.string.requestStudent);
 													((Spinner)findViewById(R.id.mainSpinnerExam)).setAdapter(new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, result));
 													Toast.makeText(context, "拉取完成,长按可重新拉取考试信息", Toast.LENGTH_SHORT).show();
 													d.cancel();
@@ -105,8 +106,10 @@ public class MainActivity extends Activity
 					}
 					if (((EditText)findViewById(R.id.mainEditTextNumber)).getText().toString().equals("")) {
 						Toast.makeText(context, "未输入考生号", Toast.LENGTH_SHORT).show();
+						d.cancel();
 						return;
 					}
+					showDialog("请求考生数据");
 					new Thread(new Runnable(){
 							@Override
 							public void run() {

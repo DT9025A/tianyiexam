@@ -39,6 +39,6 @@ C=CN
 
 
 ## 版权信息(?)
-- 数据: COPYRIGHT © 2018 TYDLK
+- 数据: COPYRIGHT © 1995 - 2018 河南天一文化传播股份有限公司
 - 程序: COPYRIGHT © 2016 - 2018 FieldCongratulations Org.
 - 开源协议: MIT LICENSE

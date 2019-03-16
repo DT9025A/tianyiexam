@@ -6,6 +6,9 @@ import android.os.*;
 import android.view.*;
 import android.view.View.*;
 import android.widget.*;
+import java.io.*;
+import java.util.regex.*;
+
 
 public class MainActivity extends Activity 
 {
@@ -21,7 +24,7 @@ public class MainActivity extends Activity
 		d.setTitle(text);
 		d.show();
 	}
-	
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,13 @@ public class MainActivity extends Activity
 											}
 										});
 									isInit = true;
+								} catch (final IOException e) {
+									runOnUiThread(new Runnable(){
+											@Override
+											public void run() {
+												Toast.makeText(context, "拉取考试信息失败: 天一网站又炸了", Toast.LENGTH_SHORT).show();
+											}
+										});
 								}  catch (final Exception e) {
 									runOnUiThread(new Runnable(){
 											@Override
@@ -91,6 +101,13 @@ public class MainActivity extends Activity
 												}
 											});
 										isInit = true;
+									} catch (final IOException e) {
+										runOnUiThread(new Runnable(){
+												@Override
+												public void run() {
+													Toast.makeText(context, "拉取考试信息失败: 天一网站又炸了", Toast.LENGTH_SHORT).show();
+												}
+											});
 									}  catch (final Exception e) {
 										runOnUiThread(new Runnable(){
 												@Override
@@ -114,10 +131,32 @@ public class MainActivity extends Activity
 							@Override
 							public void run() {
 								try {
-									info.requestResult(((EditText)findViewById(R.id.mainEditTextNumber)).getText().toString(), 
-													   info.serial[((Spinner)findViewById(R.id.mainSpinnerExam)).getSelectedItemPosition()]);
+									String userid = ((EditText)findViewById(R.id.mainEditTextNumber)).getText().toString();
+									String examid = info.serial[((Spinner)findViewById(R.id.mainSpinnerExam)).getSelectedItemPosition()];
+									if (userid.indexOf("clkid") != ~1) {
+										//自定义clkid
+										//格式:clkid:%d{m};%d{n}
+										if (userid.indexOf(';') == -1 || userid.indexOf(';') != userid.lastIndexOf(';')) {
+											Toast.makeText(context, "自定义格式错误", Toast.LENGTH_SHORT).show();
+											return;
+										}
+										String[] data = userid.split(";");
+										if (data[0].indexOf("clkid") != -1) {
+											examid=data[0].substring(6);
+											userid=data[1];
+										}else{
+											examid=data[1].substring(6);
+											userid=data[0];
+										}
+									}
+									if (!Pattern.matches("\\d+", userid)) {
+										Toast.makeText(context, "考生号格式错误", Toast.LENGTH_SHORT).show();
+										return;
+									}
+
+									info.requestResult(userid, examid);
 									final subjects s = info.indexSubjects();
-									
+
 									runOnUiThread(new Runnable(){
 											@Override
 											public void run() {
@@ -231,11 +270,18 @@ public class MainActivity extends Activity
 												d.cancel();
 											}
 										});
+								} catch (final IOException e) {
+									runOnUiThread(new Runnable(){
+											@Override
+											public void run() {
+												Toast.makeText(context, "查询失败: 天一网站又炸了", Toast.LENGTH_SHORT).show();
+											}
+										});
 								} catch (final Exception e) {
 									runOnUiThread(new Runnable(){
 											@Override
 											public void run() {
-												Toast.makeText(context, "查询错误: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+												Toast.makeText(context, "查询失败: " + e.getMessage(), Toast.LENGTH_SHORT).show();
 												d.cancel();
 												return;
 											}

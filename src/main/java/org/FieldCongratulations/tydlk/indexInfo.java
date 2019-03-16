@@ -70,7 +70,7 @@ public class indexInfo
 		else
 			isScience = true;
 		if (resultPage.contains("学号不存在"))
-			throw new StudentNotExistException("StudentNotExistException: Invalid student id. May be not participated in the exam ?");
+			throw new StudentNotExistException("StudentNotExistException: 考号不存在，可能是考号错误或考生未参加考试");
 	}
 
 	public String[] indexExamResult() {

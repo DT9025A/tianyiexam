@@ -71,22 +71,22 @@
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text=" 成绩 "/>
+						android:text="  成绩"/>
 
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text=" 班名次 "/>
+						android:text="班名次 "/>
 
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text=" 校名次 "/>
+						android:text="校名次 "/>
 
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text=" 联考名次 "/>
+						android:text="联考名次 "/>
 
 				</TableRow>
 
@@ -320,17 +320,17 @@
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="成绩"/>
+						android:text="  成绩"/>
 
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="班平"/>
+						android:text="  班平"/>
 
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="校平"/>
+						android:text=" 校平"/>
 
 					<TextView
 						android:layout_width="wrap_content"
@@ -340,17 +340,17 @@
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="班高"/>
+						android:text="  班高"/>
 
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="校高"/>
+						android:text=" 校高"/>
 
 					<TextView
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="联考高"/>
+						android:text=" 联考高"/>
 
 				</TableRow>
 
@@ -675,7 +675,8 @@
 				android:layout_height="wrap_content"
 				android:textAppearance="?android:attr/textAppearanceSmall"
 				android:layout_width="wrap_content"
-				android:text="Copyright © 2018 Tydlk , © 2018 FieldCongratulations"/>
+				android:text="Copyright © 1995 - 2019 河南天一文化传播股份有限公司     \n© 2016 - 2019 FieldCongratulations"
+				android:gravity="center"/>
 
 		</LinearLayout>
 
